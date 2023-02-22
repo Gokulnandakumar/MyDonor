@@ -1,0 +1,17 @@
+<div class="hero">
+  <div class="purchase-holder">
+    <h1>RESULTS A+ve</h1>
+    <div class="search-result">
+      <div class="image-and-stock">
+        <img src="../../../assets/image/bloodbag-image.png" alt="blood bag">
+        <h2><span>{{stock}}</span> Units</h2>
+      </div>
+      <div class="button-group">
+        <button (click)="updateQuantity('+')">+</button>
+        <h2>{{value}}</h2>
+        <button (click)="updateQuantity('-')">-</button>
+      </div>
+      <button class="btn-purchase" (click)="buyBlood()" >Purchase</button>
+    </div>
+  </div>
+</div>

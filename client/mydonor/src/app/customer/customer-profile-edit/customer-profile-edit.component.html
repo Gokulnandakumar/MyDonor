@@ -1,0 +1,32 @@
+<div class="hero">
+    <div class="profile-holder">
+        <img src="../../../assets/image/avatar-image.png" alt="customer-profile-picture">
+        <div class="userdata-holder">
+            <form #form="ngForm">
+                <label for="name">Name</label>
+                <input type="text" name="name" #name="ngModel" placeholder="{{updateModel.name}}" [(ngModel)]="updateModel.name"
+                    max="30" min="1" required>
+                <div class="text-danger" *ngIf="name.touched && name.invalid">
+                    <div *ngIf="name.errors?.['required']">Name is required</div>
+                    <div *ngIf="name.errors?.['min']">Name is too short</div>
+                    <div *ngIf="name.errors?.['max']">Name is too large</div>
+                </div>
+                
+                <label for="adress">Address</label>
+                <input type="text" name="adress" #adress="ngModel" placeholder="{{updateModel.adress}}"
+                    [(ngModel)]="updateModel.adress" required>
+                <div class="text-danger" *ngIf="adress.touched && adress.invalid">
+                    <div *ngIf="name.errors?.['required']">Address is required</div>
+                </div>
+                <label for="phone">phone</label>
+                <input type="text" name="phone" placeholder="{{updateModel.phone}}" [(ngModel)]="updateModel.phone" required
+                    max="12" #phone="ngModel" pattern="[6-9]{1}[0-9]{9}">
+                <div class="text-danger" *ngIf="phone.touched && phone.invalid">
+                    <div *ngIf="phone.errors?.['required']">phone is required</div>
+                    <div *ngIf="phone.errors?.['pattern']">phone Number is not valid</div>
+                </div>
+                <button type="submit" [disabled]="form.invalid" (click)="update()">UPDATE</button>
+            </form>
+        </div>
+    </div>
+</div>

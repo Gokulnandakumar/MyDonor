@@ -1,0 +1,41 @@
+<div class="main">
+    <h1 id="hero" class="text-center">LOGIN</h1>
+    <div class="row login-holder">
+        <div class="col-md-6 offset-md-3">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container w-50">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel"
+                        class="form-control input" placeholder="someone@example.com" required minlength="5"
+                        maxlength="70" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <div class="text-danger" *ngIf="email.invalid && email.touched">
+                        <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
+                        <div *ngIf="email.errors?.['required']">Email is required.</div>
+                        <div *ngIf="email.errors?.['maxlength']">Email is too long.</div>
+                        <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
+                    </div>
+                </div>
+                <div class="container w-50 mt-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                        class="form-control input" minlength="6" maxlength="25" placeholder="Enter password" required>
+                    <div class="text-danger" *ngIf="password.invalid && password.touched">
+                        <div *ngIf="password.errors?.['minlength']">Password is too small.</div>
+                        <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
+                        <div *ngIf="password.errors?.['required']">Password field cannot be empty.</div>
+                    </div>
+                </div>
+                <div class="container d-grid my-3 w-50 mt-3">
+                    <button type="submit" class="btn btn-pri " [disabled]="form.invalid">LOGIN</button>
+                </div>
+                <div class="container text-center">
+                    <a class="text-pri nav-link">Forgot Password?</a>
+                </div>
+                <div class="container text-center mt-4">
+                    <p>Don't have an account?</p>
+                    <a [routerLink]="'/user/signup'" class="text-pri nav-link">Register Now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

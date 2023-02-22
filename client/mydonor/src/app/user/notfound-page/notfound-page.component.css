@@ -1,0 +1,29 @@
+.not-found {
+    height: 100vh;
+    background-color: #111;
+    display: grid;
+    place-items: center;
+}
+
+.not-found h1 {
+    font-weight: 600;
+    font-size: 5rem;
+    color: #0000;
+    -webkit-text-stroke: 1px #61001f;
+    transition: 2s;
+}
+
+.not-found h1:hover {
+    color: #ff004f;
+    -webkit-text-stroke: 1px #ff004f;
+}
+
+@media only screen and (max-width:900px) {
+    .not-found {
+        background-color: #111;
+    }
+
+    .not-found h1 {
+        font-size: 2rem;
+    }
+}

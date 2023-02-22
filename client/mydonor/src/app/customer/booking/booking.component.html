@@ -1,0 +1,50 @@
+<section id="main">
+  <div class="overlay">
+    <form class="input-holder" #form = "ngForm">
+      <label for="district">Enter District</label>
+      <select class="custom-select" [(ngModel)]="model.districtid" [ngModelOptions]="{standalone: true}">
+        <option value="" disabled>
+          Choose your district
+        </option>
+        <option *ngFor="let item of district" [ngValue]="item.id">
+          {{ item.name }}
+        </option>
+      </select>
+      <label for="date">Select date</label>
+      <input type="date" name="date" [(ngModel)]="model.date" #date="ngModel" (change)="checkBooking()">
+      <label for="time">Select Time</label>
+      <select name="time" id="time" [(ngModel)]="model.time">
+        <option value="10:00-10:30">10:00 - 10:30 AM</option>
+        <option value="11:00-11:30">11:00 - 11:30 AM</option>
+        <option value="12:00-12:30">12:00 - 12:30 PM</option>
+        <option value="12:00-01:00">12:00 - 01:00 PM</option>
+        <option value="01:00-01:30">01:00 - 01:30 PM</option>
+        <option value="01:30-02:00">01:30 - 02:00 PM</option>
+        <option value="02:00-02:30">02:00 - 02:30 PM</option>
+        <option value="02:30-03:00">02:30 - 03:00 PM</option>
+        <option value="03:00-03:30">03:00 - 03:30 PM</option>
+        <option value="03:30-04:00">03:30 - 04:00 PM</option>
+      </select>
+      <button type="submit" class="btn btn-danger mt-3" [disabled]="form.invalid" (click)="saveData()">Book</button>
+    </form>
+    <!-- ---slot-window--- -->
+    <div class="slots">
+      <h4>{{model.date}}</h4>
+      <h4 class="text-danger">
+        <select class="custom-select display-district" [(ngModel)]="model.districtid" [ngModelOptions]="{standalone: true}" disabled="true">
+          <option value="" disabled>
+            Choose your district
+          </option>
+          <option *ngFor="let item of district" [ngValue]="item.id">
+            {{ item.name }}
+          </option>
+        </select> </h4>
+      <div class="timeschedule" *ngIf="data">
+        <ul *ngFor="let item of data.result">
+          <p>{{item.time}}</p>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>

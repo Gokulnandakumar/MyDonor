@@ -1,0 +1,18 @@
+<div class="requests">
+  <div *ngFor="let item of customer.result">
+    <img src="../../../assets/image/avatar-image.png" alt="User profile picture">
+    <h1>{{item.name}}</h1>
+    <p>{{item.phoneNumber}}</p>
+    <p>Blood Group</p>
+    <select name="blood" id="blood" [value]="item.blood">
+      <option value="1">A+</option>
+      <option value="2">A-</option>
+      <option value="3">B+</option>
+      <option value="4">AB+</option>
+      <option value="5">AB-</option>
+      <option value="6">B-</option>
+      <option value="7">O+</option>
+      <option value="8">O-</option>
+    </select>
+  </div>
+</div>

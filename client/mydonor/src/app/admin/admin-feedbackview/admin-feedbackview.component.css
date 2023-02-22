@@ -1,0 +1,11 @@
+.hero {
+    height: 100vh;
+    background: url(../../../assets/image/Background.png);
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+}
+
+.hero h1 {
+    color: #d30000;
+}

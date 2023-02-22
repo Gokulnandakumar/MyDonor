@@ -1,0 +1,34 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    padding: 0 1rem;
+    width: 100%;
+    height: 3rem;
+    z-index: 5;
+}
+
+.logo-holder {
+    max-width: 10rem;
+}
+
+.logo-holder img {
+    width: 100%;
+    height: 100%;
+}
+
+nav h1 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav h1 a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-right: 2rem;
+    color: #d30000;
+}

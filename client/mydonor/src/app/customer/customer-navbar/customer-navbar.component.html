@@ -1,0 +1,16 @@
+<nav>
+    <div class="logo-holder">
+        <a [routerLink]="'/'"><img src="../../../assets/image/logodark.png" alt="mydonor-logo"></a>
+    </div>
+    <div class="middle-menu">
+        <ul>
+            <li><a [routerLink]="'/customer/home'">Home</a></li>
+            <li><a [routerLink]="'/customer/history'">Active Appointments</a></li>
+            <li><a [routerLink]="'/customer/feedback'">Feedback</a></li>
+        </ul>
+    </div>
+    <a class="dp" [routerLink]="'/customer/profile'"><img src="../../../assets/image/avatar-image.png"
+            alt="User profile picture"></a>
+    <img src="../../../assets/icons/menu.png" class="menu" alt="menu-icon" (click)="show()">
+</nav>
+<app-customer-sidebar [ngStyle]="{'display':buttonClicked ? 'none' : 'block' }"></app-customer-sidebar>

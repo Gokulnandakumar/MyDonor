@@ -1,0 +1,23 @@
+<div class="hero">
+  <div class="register">
+    <button type="submit" class="btn btn-success mb-4" [routerLink]="'/admin/managers/register'">
+      Register New Manager
+    </button>
+  </div>
+  <div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="manager-holder">
+      <form>
+        <label for="district" class="mb-3">District</label>
+        <select class="custom-select display-district" [(ngModel)]="districtid" [ngModelOptions]="{standalone: true}" (click)="updateManager()">
+          <option value="" disabled>
+            Choose your district
+          </option>
+          <option *ngFor="let item of districtdata" [ngValue]="item.id">
+            {{ item.name }}
+          </option>
+        </select>
+      </form>
+      <app-managerview *ngIf="districtid"></app-managerview>
+    </div>
+  </div>
+</div>

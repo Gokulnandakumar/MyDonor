@@ -1,0 +1,48 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  padding: 5rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0)), url(../../../assets/image/Background.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.history::-webkit-scrollbar {
+  display: none;
+}
+
+.active-appoinments {
+  flex-basis: 48%;
+  height: 100%;
+  padding: 2rem;
+  box-shadow: 10px 10px 20px -1px rgba(0, 0, 0, 0.2),
+    -10px -10px 20px -1px rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow-y: scroll;
+}
+
+.active-appoinments::-webkit-scrollbar {
+  display: none;
+}
+
+h2 {
+  color: #555;
+  font-size: 2.5rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width:900px) {
+  .main {
+    padding: 5rem 1rem;
+  }
+
+  .active-appoinments {
+    flex-basis: 100%;
+    height: 20rem;
+  }
+}

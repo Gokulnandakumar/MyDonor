@@ -1,0 +1,13 @@
+<nav>
+    <div class="logo-holder">
+        <a [routerLink]="'/'"><img src="../../../assets/image/logodark.png" alt="mydonor-logo"></a>
+    </div>
+    <div class="middle-menu">
+        <ul>
+            <li><a [routerLink]="'/user/login'">Login</a></li>
+            <li><a [routerLink]="'/user/signup'">Signup</a></li>
+        </ul>
+    </div>
+    <img src="../../../assets/icons/menu.png" class="menu" alt="menu-icon" (click)="show()">
+</nav>
+<app-landing-sidebar [ngStyle]="{'display':buttonClicked ? 'none' : 'block' }"></app-landing-sidebar>

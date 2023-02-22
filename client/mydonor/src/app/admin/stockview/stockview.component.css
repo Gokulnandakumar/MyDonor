@@ -1,0 +1,48 @@
+.stockview {
+    width: 45rem;
+    height: 4rem;
+    background-color: #eee;
+    border-radius: 10px;
+    display: flex;
+    padding: 0 2rem;
+    align-items: center;
+    margin-top: 1rem;
+    transition: .5s;
+}
+
+.stockview:hover {
+    transform: scale(105%);
+}
+
+.stockview h1 {
+    color: #d30000;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+}
+
+.stockview h2 {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+
+@media only screen and (max-width:900px) {
+    .stockview {
+        width: 25rem;
+    }
+
+    .stockview h1,
+    .stockview h2 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:1400px) {
+    .stockview {
+        width: 30rem;
+    }
+
+    .stockview h1,
+    .stockview h2 {
+        font-size: 1.2rem;
+    }
+}

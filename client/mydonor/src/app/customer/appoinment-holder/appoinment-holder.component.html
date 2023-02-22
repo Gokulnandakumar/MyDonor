@@ -1,0 +1,7 @@
+<div>
+  <div class="appoinment-holder" *ngIf="!appointment.isValid">
+    <h3>{{appointment.result.date}}</h3>
+    <h3>{{appointment.result.time}}</h3>
+    <button class="btn btn-warning" (click)="deleteAppointment()">cancel</button>
+  </div>
+</div>

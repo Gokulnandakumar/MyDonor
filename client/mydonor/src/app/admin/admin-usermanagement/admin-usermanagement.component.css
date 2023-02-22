@@ -1,0 +1,25 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url(../../../assets/image/background.png);
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+.users-holder {
+    width: 90%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 2px solid #fff;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.users-holder::-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,133 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url(../../../assets/image/background.png);
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    padding-top: 2rem;
+}
+
+.purchase-holder {
+    width: 95%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border: 2px solid #fff;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    padding: 1rem;
+}
+
+.purchase-holder h1 {
+    color: #fff;
+    margin: 3rem 5rem;
+}
+
+.search-result {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10rem;
+    margin-top: 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+
+.image-and-stock {
+    width: fit-content;
+    text-align: center;
+    background-color: #111;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+
+span {
+    color: #d30000;
+    font-weight: 700;
+}
+
+.image-and-stock img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.image-and-stock h2 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
+
+.button-group h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+.button-group button {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid #fff;
+    outline: 0;
+    font-size: 2rem;
+    border-radius: 50%;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+
+.button-group button:hover {
+    background-color: #d30000;
+    color: #fff;
+}
+
+.btn-purchase {
+    width: 10rem;
+    height: 3rem;
+    border: 2px solid #fff;
+    outline: 0;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.btn-purchase:hover {
+    background-color: #0a9000;
+}
+
+@media only screen and (max-width:900px) {
+    .purchase-holder h1 {
+        margin: 0;
+    }
+
+    .image-and-stock {
+        padding: 0.1rem;
+    }
+
+    .image-and-stock img {
+        width: 30px;
+        margin-bottom: 1rem;
+    }
+
+    .button-group button {
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .search-result {
+        padding: 1rem;
+    }
+
+    .btn-purchase {
+        width: fit-content;
+    }
+}

@@ -1,0 +1,8 @@
+#hero{
+    padding-top: 5%;
+    height: 100vh;
+    background-image: url(../../../assets/image/Background.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}

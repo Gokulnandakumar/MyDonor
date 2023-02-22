@@ -1,0 +1,35 @@
+<main id="hero">
+    <h1 class="slogan">People live when people give <span>.</span></h1>
+    <section id="middlesection">
+        <div class="searchholder">
+            <form #form = "ngForm">
+                <label for="bloodgroup">Blood Group</label>
+                <select name="bloodgroup" id="bloodgroup" placeholder="bloodgroup" [(ngModel)]="model.bloodid" required>
+                    <option value="1">A+</option>
+                    <option value="2">A-</option>
+                    <option value="3">B+</option>
+                    <option value="4">AB+</option>
+                    <option value="5">AB-</option>
+                    <option value="6">B-</option>
+                    <option value="7">O+</option>
+                    <option value="8">O-</option>
+                  </select>
+                  <label for="district">District</label>
+                  <select class="custom-select" [(ngModel)]="model.districtid" [ngModelOptions]="{standalone: true}" required>
+                        <option value="" disabled>
+                          Choose your district
+                        </option>
+                        <option *ngFor="let item of district" [ngValue]="item.id">
+                          {{ item.name }}
+                        </option>
+                </select> 
+                    
+                <button type="submit" id="search" (click)="saveData()" [routerLink]="'/customer/purchase'" [disabled]="form.invalid">Search</button>
+                <button [routerLink]="'/customer/booking'">Donate</button>
+            </form>
+        </div>
+        <div class="dashboard">
+            <app-userinfo-holder class="mb-3" *ngFor="let user of users.result" [test]="user"></app-userinfo-holder>
+        </div>
+    </section>
+</main>

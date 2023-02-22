@@ -1,0 +1,42 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url(../../../assets/image/background.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.manager-holder {
+  width: 50%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 2px solid #fff;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.manager-holder::-webkit-scrollbar {
+  display: none;
+}
+
+.register {
+  padding-top: 5%;
+  padding-right: 2%;
+  display: flex;
+  justify-self: end;
+}
+
+select {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+  border: 0;
+  outline: 0;
+}

@@ -1,0 +1,82 @@
+.manager {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.managerinfo {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.managerinfo img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.managerinfo h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  font-weight: 600;
+}
+
+.btn-holder {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.btn-holder button {
+  border: 0;
+  outline: 0;
+  width: 13rem;
+  height: 2rem;
+  color: #fff;
+  border-radius: 5px;
+  transition: transform 0.2s;
+  margin-top: 2rem;
+}
+
+.btn-holder button:active {
+  transform: scale(105%);
+}
+
+.update-btn {
+  background-color: #d30000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+form input {
+  height: 2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width:900px) {
+  .userinfo {
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .btn-holder {
+    flex-basis: 100%;
+  }
+
+  .btn-holder button {
+    width: 5rem;
+  }
+}

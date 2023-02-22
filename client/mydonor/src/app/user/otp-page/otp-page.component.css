@@ -1,0 +1,69 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  background: url(../../../assets/image/Background.png);
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.otp-holder {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px -1px rgba(0, 0, 0, 0.2),
+    -10px 10px 20px -1px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: linear-gradient(45deg, rgba(126, 126, 126, 0.2), rgb(255, 255, 255));
+  padding: 3rem;
+}
+
+.otp-holder form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+form input {
+  width: 20rem;
+  height: 3rem;
+  padding: 1rem;
+  border: 0;
+  outline: 0;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px -1px rgba(255, 255, 255, 0.2),
+    -10px -10px 20px -1px rgba(0, 0, 0, 0.05);
+}
+
+form input::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+form button {
+  height: 3rem;
+  border: 0;
+  outline: 0;
+  background: #d30000;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 5px;
+}
+
+form button:active {
+  background-color: #333;
+}
+
+@media only screen and (max-width:900px) {
+  form input {
+    width: 100%;
+    height: 2rem;
+  }
+}
