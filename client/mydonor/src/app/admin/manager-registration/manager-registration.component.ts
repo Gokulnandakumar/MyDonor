@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountsService } from 'src/app/services/accounts.service';
 import { DistrictService } from 'src/app/services/district.service';
 
@@ -21,16 +22,18 @@ export class ManagerRegistrationComponent implements OnInit {
     cpassword: ''
   };
 
-  constructor(private service: AccountsService, private district: DistrictService,private route: Router) { }
+  constructor(private service: AccountsService, private district: DistrictService,private route: Router, private toastr: ToastrService) { }
 
   onSubmit(form: any) {
     console.log(this.model);
     this.service.managerRegistration(this.model).subscribe({
       next: (Data) => {
         console.log(Data);
+        this.toastr.success('updated','manager register');
         this.route.navigate(['/admin/home']);
       },
       error: (err) => {
+        this.toastr.success('error','manager register failed');
         console.error(err);
       }
     });

@@ -11,7 +11,7 @@
         </option>
       </select>
       <label for="date">Select date</label>
-      <input type="date" name="date" [(ngModel)]="model.date" #date="ngModel" (change)="checkBooking()">
+      <input type="date" name="date" [(ngModel)]="model.date" #date="ngModel" (change)="checkBooking(date)">
       <label for="time">Select Time</label>
       <select name="time" id="time" [(ngModel)]="model.time">
         <option value="10:00-10:30">10:00 - 10:30 AM</option>

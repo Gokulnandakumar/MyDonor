@@ -80,7 +80,7 @@ namespace MyDonor.WebApp.Controller.Customer.Controllers
             var result = await _service.DeleteAppointmentAsync(userid);
             if (result.IsValid)
             {
-                return NotFound();
+                return NotFound(result.Errors);
             }
             return Ok(result);
         }

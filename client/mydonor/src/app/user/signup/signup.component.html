@@ -83,7 +83,7 @@
           (change)="handleDob(dob)" required>
       </div>
       <div class="text-danger">
-        <div *ngIf="status">Age is less than 18</div>
+        <div *ngIf="status">Age is less than 18 or not valid</div>
       </div>
       <div class="text-danger" *ngIf="dob.invalid && dob.touched">
         <div *ngIf="dob.errors?.['required']">Age is required</div>

@@ -28,6 +28,7 @@ export class SignupComponent {
   };
 
   constructor(private signupservice: SignupService, private router: Router, private toastr: ToastrService) { }
+ 
 
   signupCustomer() {
     this.signupservice.signup(this.userData).subscribe({
@@ -38,12 +39,20 @@ export class SignupComponent {
       },
       error: (err) => {
         console.error(err);
-        this.toastr.error('error occured','server Error');
+        this.toastr.error('error occured','fill all details');
       }
     });
   }
   handleDob(dob: any) {
 
+    var inputDate = new Date(this.userData.dob);
+    var todaysDate = new Date();
+    console.log(inputDate);
+    console.log(todaysDate);
+    if (inputDate >= todaysDate) {
+      this.toastr.error('date not possible', 'Date');
+      this.status = true;
+    }
     // function to validate age of customer.
     let date = new Date(dob.value)
     let timeDiff = Math.abs(Date.now() - date.getTime());

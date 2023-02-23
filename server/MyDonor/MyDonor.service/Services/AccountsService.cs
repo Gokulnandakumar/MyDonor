@@ -191,7 +191,7 @@ namespace MyDonor.service.Services
         public async Task<ServiceResponse<ManagerCreateViewDto>> ManagerCreateAsync(ManagerCreateDto dto)
         {
             var Response = new ServiceResponse<ManagerCreateViewDto>();
-            var Manager = await _userManager.FindByEmailAsync(dto.Email);
+            var Manager = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.BloodId == null && m.DistrictId == dto.District);
             if (Manager != null)
             {
                 Response.AddError("Manager", "manger exists");

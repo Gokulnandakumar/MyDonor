@@ -10,7 +10,7 @@ import { TokenHelper } from 'src/utilities/helpers/tokenHelper';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
-district:any;
+  district: any;
 
   model = {
     districtid: '',
@@ -19,18 +19,26 @@ district:any;
     userid: ''
   };
 
-  data : any;
-        constructor( private toastr: ToastrService ,private token: TokenHelper, private service: BookingService, private districtservice: DistrictService, private router:Router) { }
+  data: any;
+  constructor(private toastr: ToastrService, private token: TokenHelper, private service: BookingService, private districtservice: DistrictService, private router: Router) { }
 
-  checkBooking() {
+  checkBooking(data: any) {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
+    console.log(data);
+    var inputDate = new Date(data.model);
+    var todaysDate = new Date();
+    console.log(inputDate);
+    console.log(todaysDate);
+    if (inputDate <= todaysDate) {
+      this.toastr.error('date not possible', 'Date');
+    }
     this.service.getBookings(this.model).subscribe({
       next: (Data) => {
-        this.data = Data; 
+        this.data = Data;
       },
       error: (err) => {
         console.error(err);
-        this.toastr.error('error showing data','bookings');
+        this.toastr.error('error showing data', 'bookings');
       }
     })
   }
@@ -48,11 +56,11 @@ district:any;
     })
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.districtservice.getDistrict().subscribe({
-      next:(data)=>{
-      this.district = data;
-      console.log(this.district);
+      next: (data) => {
+        this.district = data;
+        console.log(this.district);
       },
     })
   }

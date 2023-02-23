@@ -203,18 +203,6 @@ namespace MyDonor.Service.Services
                 Response.AddError("Appointment", "appointment does not exist");
                 return Response;
             }
-            var user = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Id == userid);
-            var stock = await _db.Stocks.FirstOrDefaultAsync(m => m.BloodBankId == appointment.BloodBankId && m.BloodGroupId == user.BloodId);
-            if (stock == null)
-            {
-                Response.AddError("stock", "stock does not exist");
-                return Response;
-            }
-            if( stock.Quantity == 1 )
-            {
-                _db.Remove(stock);
-            }
-            stock.Quantity -= 1;
             _db.Remove(appointment);
             _db.SaveChanges();
             Response.Result= "Deleted";
