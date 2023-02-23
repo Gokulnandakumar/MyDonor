@@ -16,7 +16,6 @@ export class ManagerHomepageComponent implements OnInit {
     console.log(id.model);
     this.service.updateAppointment(id.model).subscribe({
       next:(data)=>{
-        // alert("success");
       }
     })
   }
@@ -35,7 +34,6 @@ export class ManagerHomepageComponent implements OnInit {
       next:(data)=>{
         this.booking = data;
         console.log(this.booking);
-        alert("success");
       }
     })
   }

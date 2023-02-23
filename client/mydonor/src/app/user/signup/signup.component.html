@@ -56,7 +56,7 @@
       <div class="mt-2">
         <label for="address">Address</label>
         <input class="inputbox-outline form-control" type="text" name="address" [(ngModel)]="userData.address"
-          minlength="3" maxlength="15" #address="ngModel" required>
+          minlength="3" maxlength="200" #address="ngModel" required>
       </div>
       <div class="text-danger" *ngIf="address.invalid && address.touched">
         <div *ngIf="address.errors?.['required']">Address is required.</div>

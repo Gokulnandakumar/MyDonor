@@ -4,11 +4,11 @@
     <app-request-clicked></app-request-clicked>
     <main>
       <div *ngIf="appointment.result">
-      <div class="appointment" *ngFor="let item of appointment.result">
+      <div class="appointment">
         <h1>Appointments</h1><!-- -------------------------------------------------- -->
-        <div class="infoholder mt-3">
-          <p class="mb-3">{{item.date}}</p>
-          <p class="mb-3">{{item.time}}</p>
+        <div class="infoholder mt-3"*ngFor="let item of appointment.result">
+          <p class="me-3">{{item.date}}</p>
+          <p class="me-3">{{item.time}}</p>
           <div class="btn-group"> 
            <button class="btn btn-danger" #data="ngModel" [(ngModel)]="item.id" (click)="approveAppointment(data)">Approve</button>
           </div>
@@ -17,10 +17,10 @@
       </div>
       <div>
       <div class="booking" *ngIf="booking.result">
-        <h1>Booking</h1><!-- -------------------------------------------------------------------- -->
+        <h1>Purchased</h1><!-- -------------------------------------------------------------------- -->
         <div class="infoholder mt-3" *ngFor="let item of booking.result">
-          <h3>{{item.quantity}}</h3>
-          <p>{{item.date}}</p>
+          <h3 class="me-4">Qty {{item.quantity}}</h3>
+          <p class="ms-2">Purchase Date : {{item.date}}</p>
         </div><!-- -------------------------------------------------------------------- -->
       </div>
       </div>

@@ -180,7 +180,7 @@ namespace MyDonor.Service.Services
         public async Task<ServiceResponse<AppointmentViewDto>> GetAppointmentsAsync(string userid)
         {
             var Response = new ServiceResponse<AppointmentViewDto>();
-            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid);
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid && m.Approved == false);
             if (appointment == null)
             {
                 Response.AddError("Appointment", "appointment does not exist");
@@ -197,7 +197,7 @@ namespace MyDonor.Service.Services
         public async Task<ServiceResponse<string>> DeleteAppointmentAsync(string userid)
         {
             var Response = new ServiceResponse<string>();
-            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid);
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(m => m.CustomerId == userid && m.Approved == false);
             if (appointment == null)
             {
                 Response.AddError("Appointment", "appointment does not exist");

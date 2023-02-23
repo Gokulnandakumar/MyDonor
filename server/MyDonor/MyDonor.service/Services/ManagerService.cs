@@ -50,7 +50,7 @@ namespace MyDonor.Service.Services
         public async Task<ServiceResponse<string>> ValidateCustomerAppointments(int appointmentid)
         {
             var Response = new ServiceResponse<string>();
-            var appointment = _db.Appointments.Where(m => m.Id == appointmentid).FirstOrDefault();
+            var appointment = _db.Appointments.Where(m => m.Id == appointmentid && m.Approved == false).FirstOrDefault();
             if (appointment == null)
             {
                 Response.AddError("Appointment", "appointment is not present");
@@ -74,7 +74,7 @@ namespace MyDonor.Service.Services
                 };
                 await _db.Stocks.AddAsync(stock);
             }
-            if (stocks != null)
+            if (stocks?.Quantity >= 0)
             {
                 stocks.Quantity = stocks.Quantity + 1;
             }

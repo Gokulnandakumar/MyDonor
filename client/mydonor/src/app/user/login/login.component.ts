@@ -31,6 +31,9 @@ export class LoginComponent {
                 else if (role.userrole === "Customer") {
                     this.router.navigateByUrl('/customer/home');
                 }
+                else if(role.userrole === "Admin") {
+                    this.router.navigateByUrl('/admin/home');
+                }
             }
         })
     }

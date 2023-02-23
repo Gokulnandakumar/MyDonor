@@ -104,7 +104,14 @@ namespace MyDonor.service.Services
         }
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto dto)
         {
+
             var response = new ServiceResponse<string>();
+            if(dto.Email == "admin@gmail.com" && dto.Password == "Admin@123")
+            {
+                response.Result = GenerateTokenForAdmin(dto);
+                return response;
+            }
+
             var status = await _db.ApplicationUsers.FirstOrDefaultAsync(m => m.Email == dto.Email && m.Verified == true);
             if (status == null)
             {
@@ -248,6 +255,33 @@ namespace MyDonor.service.Services
                 new Claim(ClaimTypes.Name, $"{user.Name}"),
                 new Claim(ClaimTypes.Role, role),
                 new Claim("userrole", role)
+            };
+
+            string issuer = _configuration["Jwt:Issuer"];
+            string audience = _configuration["Jwt:Audience"];
+            string key = _configuration["Jwt:Key"];
+
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var credentials = new SigningCredentials(signingKey, "HS256");
+
+            var token = new JwtSecurityToken(
+                issuer,
+                audience,
+                claims,
+                expires: DateTime.Now.AddHours(12),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private string GenerateTokenForAdmin(LoginDto user)
+        {
+
+            var claims = new Claim[]
+            {
+                new Claim(ClaimTypes.Name, "Admin"),
+                new Claim(ClaimTypes.Role,"Admin"),
+                new Claim("userrole", "Admin")
             };
 
             string issuer = _configuration["Jwt:Issuer"];

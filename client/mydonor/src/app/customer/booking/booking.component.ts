@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BookingService } from 'src/app/services/booking.service';
 import { DistrictService } from 'src/app/services/district.service';
@@ -19,7 +20,7 @@ district:any;
   };
 
   data : any;
-        constructor( private toastr: ToastrService ,private token: TokenHelper, private service: BookingService, private districtservice: DistrictService) { }
+        constructor( private toastr: ToastrService ,private token: TokenHelper, private service: BookingService, private districtservice: DistrictService, private router:Router) { }
 
   checkBooking() {
     this.model.userid = this.token.getDecodedToken().nameidentifier;
@@ -38,7 +39,7 @@ district:any;
     this.model.userid = this.token.getDecodedToken().nameidentifier;
     this.service.saveBookings(this.model).subscribe({
       next: (Data) => {
-        this.toastr.success('sucess','booking');
+        this.router.navigate(['/customer/history']);
       },
       error: (err) => {
         console.error(err);
